@@ -1,21 +1,23 @@
 TABLES
-User:
-- userId - number
-- firstName - string
-- lastName - string
-- DOB - date
-- password - string
-- bio - string
+users:
+.uuid('id').notNullable().primary()
+.string('email').unique().notNullable()
+.string('firstName').notNullable()
+.string('lastName').notNullable()
+.datetime('DOB', [precision]).notNullable()
+.string('password').notNullable()
+.text('bio')
 
-Posts:
-- authorId - number - link to userId
-- postId - number
-- text - string
-- date - date
-- likes - number
+posts:
+.uuid('id').notNullable().primary()
+.uuid('userId').references(users.id)
+.text('text')
+.datetime('date')
+.number('likes')
 
-Friends:
-- requestorId - number - link to userId
-- requestedId - number - link to userId
-- date - date
-- status - enum (accepted/declined/requested)
+friends:
+.uuid('id').notNullable().primary()
+.uuid('requestorId').references(users.id)
+.uuid('requestedId').references(users.id)
+.datetime('date)
+.enum('status', ['ACCEPTED', 'DECLINED', 'REQUESTED'])
