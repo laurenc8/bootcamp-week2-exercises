@@ -6,9 +6,9 @@ exports.up = async knex => knex.schema.createTable('posts', table => {
     .defaultTo(knex.raw('uuid_generate_v4()'))
   
   table
-    .uuid('userId')
+    .uuid('authorId')
     .notNullable()
-    .references(users.id)
+    .references('users.id')
 
   table
     .text('text')

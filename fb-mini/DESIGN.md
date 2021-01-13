@@ -10,7 +10,7 @@ users:
 
 posts:
 .uuid('id').notNullable().primary()
-.uuid('userId').references(users.id)
+.uuid('authorId').references(users.id)
 .text('text')
 .datetime('date')
 .number('likes')

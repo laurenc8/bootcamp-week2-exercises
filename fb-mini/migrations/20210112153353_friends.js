@@ -8,12 +8,12 @@ exports.up = async knex => knex.schema.createTable('friends', table => {
   table
     .uuid('requestorId')
     .notNullable()
-    .references(users.id)
+    .references('users.id')
 
   table
     .uuid('requestedId')
     .notNullable()
-    .references(users.id)
+    .references('users.id')
   
   table
     .datetime('date')

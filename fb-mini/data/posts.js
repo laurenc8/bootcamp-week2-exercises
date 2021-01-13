@@ -1,8 +1,9 @@
 const casual = require('casual')
+const userData = require('./users')
 
-casual.define('post', () => ({
+casual.define('post', ({userId}) => ({
   id: casual.uuid,
-  userId: casual.uuid,
+  authorId: userId,
   text: casual.text,
   date: casual.date(),
   password: casual.password,
@@ -12,7 +13,8 @@ casual.define('post', () => ({
 const postData=[]
 
 for (let i = 0; i < 20; i += 1) {
-  postData.push(casual.post)
+  const userId = casual.random_element(userData).id
+  postData.push(casual.post({userId}))
 }
 
 module.exports = postData
