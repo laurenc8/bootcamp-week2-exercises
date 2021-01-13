@@ -19,7 +19,7 @@ exports.up = async knex => knex.schema.createTable('posts', table => {
     .defaultTo(knex.fn.now())
 
   table
-    .number('likes')
+    .integer('likes')
     .notNullable()
 })
 

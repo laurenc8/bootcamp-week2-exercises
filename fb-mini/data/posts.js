@@ -6,7 +6,6 @@ casual.define('post', ({userId}) => ({
   authorId: userId,
   text: casual.text,
   date: casual.date(),
-  password: casual.password,
   likes: casual.integer(from = 0, to = 500),
 }))
 
