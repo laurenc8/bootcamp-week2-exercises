@@ -55,3 +55,5 @@ typings/
 
 graphql.config.json
 graphql.schema.json
+
+.env
