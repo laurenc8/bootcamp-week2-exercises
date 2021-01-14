@@ -18,18 +18,18 @@ class User extends BaseModel {
           to: 'pets.ownerId',
         },
       },
-      relations: {
-        relation: ManyToManyRelation,
-        modelClass: Relation,
-        join: {
-          from: 'users.id',
-          through: {
-            from: 'relations.parentId',
-            to: 'relations.childId',
-          },
-          to: 'users.id',
-        },
-      },
+      // children: {
+      //   relation: ManyToManyRelation,
+      //   modelClass: User,
+      //   join: {
+      //     from: 'users.id',
+      //     through: {
+      //       from: 'relations.parentId',
+      //       to: 'relations.childId',
+      //     },
+      //     to: 'users.id',
+      //   },
+      // },
       // parents: {
       //   relation: ManyToManyRelation,
       //   modelClass: Relation,

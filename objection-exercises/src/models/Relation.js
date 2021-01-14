@@ -13,12 +13,12 @@ class Relation extends BaseModel {
         relation: ManyToManyRelation,
         modelClass: User,
         join: {
-          from: 'relations.parentId',
+          from: 'users.id',
           through: {
-            from: 'users.id',
-            to: 'users.id',
+            from: 'relations.parentId',
+            to: 'relations.childId',
           },
-          to: 'relations.childId',
+          to: 'users.id',
         },
       },
     }
