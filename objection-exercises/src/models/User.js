@@ -6,6 +6,14 @@ class User extends BaseModel {
     return 'users'
   }
 
+  static get virtualAttributes() {
+    return ['fullName']
+  }
+
+  get fullName() {
+    return `${this.firstName} ${this.lastName}`
+  }
+
   static get relationMappings() {
     const Pet = require('./Pet')
     return {
